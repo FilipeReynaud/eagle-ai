@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request, Response
+from app.schemas.generate_image_request import GenerateImageRequest
 
 from app.services.openai import OpenAiService
-# prefix="/"
 router = APIRouter()
 
 class BaseController:
@@ -13,19 +13,15 @@ class BaseController:
 
     @router.post("/generate_image")
     async def generate_image(request: Request, response: Response):
-        body = await request.json()
-
-        description = body["description"]
-        mock = body["mock"]
-
-        # description can't have more than 1k characters
-        if not description or len(description) > 1000:
+        try:
+            body = GenerateImageRequest(**(await request.json()))
+        except ValueError as error:
             response.status_code = 500
 
             return {
-                "errorMessage": "description can't have more than 1k characters"
+                "error": str(error)
             }
 
-        image = OpenAiService.generate_image(description, mock=mock)
+        image = OpenAiService.generate_image(body.description, mock=body.mock)
 
         return image
