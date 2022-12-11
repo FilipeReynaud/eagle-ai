@@ -1,0 +1,38 @@
+.mainContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    padding-left: 2rem !important;
+}
+
+.MuiGridItem,
+.MuiGridItemButton {
+    padding: 0 !important;
+    margin-top: 0.5rem !important;
+}
+
+.MuiGridItemButton {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promptGridItem {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #787A91;
+}
