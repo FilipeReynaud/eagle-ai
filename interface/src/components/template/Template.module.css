@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.featureLabel {
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    margin-bottom: 0.2rem;
+}

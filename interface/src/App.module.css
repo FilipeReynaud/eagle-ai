@@ -1,0 +1,31 @@
+.mainContainer {
+    height: 100%;
+}
+
+.MuiGridItem {
+    height: 100%;
+}
+
+.MuiGridItemTop {
+    height: 10% !important;
+}
+
+.MuiGridItemMiddle {
+    height: 85% !important;
+    max-height: 85% !important;
+}
+
+.MuiGridItemBottom {
+    height: 5% !important;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .MuiGridItem,
+    .MuiGridItemTop,
+    .MuiGridItemMiddle,
+    .MuiGridItemBottom {
+        height: fit-content !important;
+        max-height: fit-content !important;
+    }
+}

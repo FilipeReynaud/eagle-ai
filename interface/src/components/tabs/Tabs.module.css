@@ -1,0 +1,12 @@
+.MuiButtonBaseRoot {
+    color: #787A91 !important;
+}
+
+.MuiButtonBaseRootSelected {
+    color: #1976d2 !important;
+    font-weight: 700 !important;
+}
+
+.tabPanel {
+    margin-bottom: 1rem !important;
+}
