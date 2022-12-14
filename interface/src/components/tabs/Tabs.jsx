@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+
 // Typing
 import PropTypes from 'prop-types';
 
@@ -13,6 +16,7 @@ import styles from './Tabs.module.css';
 
 // Shared
 import { classNames } from '../../shared/utils';
+import { onTabChange } from '../../shared/state/actions';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -51,10 +55,13 @@ function a11yProps(index, value) {
 }
 
 export default function Tabs({ children }) {
-    const [value, setValue] = useState(0);
+    const selectedTab = useSelector((state) => state.tab.selected);
+    const dispatch = useDispatch();
+    const [value, setValue] = useState(selectedTab);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        onTabChange(dispatch, newValue);
     };
 
     return (

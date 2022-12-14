@@ -1,11 +1,12 @@
 import React from 'react';
 
+// Redux
+import { useSelector } from 'react-redux';
+
 // Styles
 import styles from './InputSentence.module.css';
 
-// Shared
-import { OPEN_DESCRIPTION_PLACEHOLDER } from '../../shared/constants';
-
 export default function InputSentence() {
-    return <span className={styles.input}>{OPEN_DESCRIPTION_PLACEHOLDER}</span>;
+    const sentence = useSelector((state) => state.image.imageSentence);
+    return <span className={styles.input}>{sentence}</span>;
 }

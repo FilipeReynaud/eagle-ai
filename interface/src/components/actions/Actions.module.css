@@ -1,6 +1,11 @@
 .actionsContainer {
-    width: 50%;
+    width: 55%;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rightActionsContainer {
+    display: flex;
     gap: 0.5rem;
 }

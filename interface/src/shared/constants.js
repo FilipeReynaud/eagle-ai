@@ -26,3 +26,6 @@ export const FEATURE_PLACEHOLDERS = {
 
 export const OPEN_DESCRIPTION_PLACEHOLDER =
     "Early 20's man, white skin, light short brown hair and brown eyes, no beard, large nostrils, skinny jaw, thick brown eyebrows.";
+
+export const PREVIEW_PANEL_EMPTY_STATE =
+    'Describe the suspect so that our engine can generate a potential sketch for you!';

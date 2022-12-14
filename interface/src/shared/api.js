@@ -5,10 +5,15 @@ export const postSentence = async (sentence) => {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',
+        credentials: 'same-origin',
         body: JSON.stringify({
             description: 'Mock description',
         }),
     })
         .then((response) => response.json())
-        .catch((error) => console.log(error));
+        .then((data) => data)
+        .catch((error) => {
+            console.error(error);
+            throw new Error(error);
+        });
 };
