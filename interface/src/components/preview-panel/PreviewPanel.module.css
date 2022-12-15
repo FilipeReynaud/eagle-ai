@@ -15,14 +15,14 @@
 }
 
 .generatedImage {
-    width: 55%;
+    width: 100%;
 }
 
 .emptyStateSpan {
     font-size: 2rem;
     font-weight: 500;
     color: #787A91;
-    width: 50%;
+    width: 100%;
     text-align: center;
 }
 
@@ -30,7 +30,7 @@
     font-size: 1rem;
     font-weight: 400;
     color: #787A91;
-    width: 55%;
+    width: 100%;
     text-align: center;
     margin-top: -1rem;
 }

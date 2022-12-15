@@ -11,7 +11,6 @@ import FormHelperText from '@mui/material/FormHelperText';
 
 // Styles
 import { styled } from '@mui/material/styles';
-import styles from './ImageCardinality.module.css';
 
 // Shared
 import { changeNrOfImages } from '../../shared/state/actions';

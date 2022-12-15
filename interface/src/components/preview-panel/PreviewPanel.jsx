@@ -54,11 +54,15 @@ export default function PreviewPanel() {
     } else {
         return (
             <div className={styles.previewContainer}>
-                <div className={styles.innerContainer}>
+                <div
+                    className={styles.innerContainer}
+                    style={{ color: 'white !important' }}
+                >
                     <img
                         src={url[selectedUrl].url}
                         alt="generated result"
                         className={styles.generatedImage}
+                        loading="Loading"
                     />
                     <InputSentence />
                     <Actions />
