@@ -30,7 +30,7 @@ class OpenAiService:
         body = {
             "prompt": description,
             "n": nrOfImages,
-            "size": "1024x1024",
+            "size": "512x512",
         }
 
         response = RequestsService.post(
