@@ -12,21 +12,22 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Tabs from '../tabs';
 import Template from '../template';
 import OpenDescription from '../open-description';
+import ImageCardinality from '../image-cardinality';
 
 // Styles
 import styles from './Prompt.module.css';
 import { styled } from '@mui/material/styles';
 
 // Shared
-import { classNames, extractSentenceFromForm } from '../../shared/utils';
 import {
-    PROMPT_DESCRIPTION,
-    OPEN_DESCRIPTION_PLACEHOLDER,
-} from '../../shared/constants';
+    classNames,
+    extractSentenceFromForm,
+    buildSentenceFromDescription,
+} from '../../shared/utils';
+import { PROMPT_DESCRIPTION } from '../../shared/constants';
 import { onGenerateClick } from '../../shared/state/actions';
 
 const GenerateButton = styled(Button)({
-    // backgroundColor: '#252525',
     '&:disabled': {
         backgroundColor: '#252525',
         color: 'white',
@@ -38,7 +39,7 @@ export default function Prompt() {
     const selectedTab = useSelector((state) => state.tab.selected);
     const form = useSelector((state) => state.form);
     const description = useSelector((state) => state.description.value);
-
+    const nrOfImages = useSelector((state) => state.image.nrOfImages);
     const dispatch = useDispatch();
 
     const onClickInterceptor = () => {
@@ -46,11 +47,11 @@ export default function Prompt() {
         if (selectedTab === 0) {
             sentence = extractSentenceFromForm(form);
         } else if (selectedTab === 1) {
-            sentence = description;
+            sentence = buildSentenceFromDescription(description);
         }
 
         if (sentence) {
-            onGenerateClick(dispatch, sentence);
+            onGenerateClick(dispatch, sentence, nrOfImages);
         }
     };
 
@@ -76,6 +77,7 @@ export default function Prompt() {
                 </Tabs>
             </Grid>
             <Grid item xs={12} className={styles.MuiGridItemButton}>
+                <ImageCardinality />
                 <GenerateButton
                     variant="contained"
                     startIcon={<AddCircleOutlineIcon />}

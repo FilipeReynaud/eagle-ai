@@ -4,6 +4,7 @@ from app.schemas.generate_image_request import GenerateImageRequest
 from app.services.openai import OpenAiService
 router = APIRouter()
 
+
 class BaseController:
     @router.get("/healthcheck")
     async def healthcheck():
@@ -22,6 +23,7 @@ class BaseController:
                 "error": str(error)
             }
 
-        image = OpenAiService.generate_image(body.description, mock=body.mock)
+        image = OpenAiService.generate_image(
+            body.description, mock=body.mock, nrOfImages=body.nrOfImages)
 
         return image

@@ -1,3 +1,5 @@
+import { SENTENCE_PREFIX } from './constants';
+
 export const classNames = (classNames) => classNames.join(' ');
 
 export const extractSentenceFromForm = (form) => {
@@ -9,5 +11,9 @@ export const extractSentenceFromForm = (form) => {
         }
     });
 
-    return Object.values(formCopy).join(', ');
+    const description = Object.values(formCopy).join(', ');
+    return buildSentenceFromDescription(description);
 };
+
+export const buildSentenceFromDescription = (description) =>
+    `${SENTENCE_PREFIX}${description}`;

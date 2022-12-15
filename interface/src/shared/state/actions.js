@@ -10,6 +10,7 @@ import {
     previousUrl,
     nextUrl,
     setImgSentence,
+    setNrOfImages,
 } from './imageSlice';
 import { postSentence } from '../api';
 
@@ -33,28 +34,14 @@ export const onTabChange = (dispatch, value) => {
 };
 
 // Buttons
-export const onGenerateClick = (dispatch, sentence) => {
+export const onGenerateClick = (dispatch, sentence, nrOfImages) => {
     dispatch(generateClick({ button: 'generate' }));
     // TODO: catch possible error on API communication
 
-    // TODO: remove below
-    // Mocked response to check loading screen
-    postSentence().then((res) => {
-        setTimeout(() => {
-            dispatch(generateClick({ button: 'generate' }));
-            setImageUrl(dispatch, [...res, ...res], false);
-            setImageSentence(dispatch, sentence);
-        }, 2000);
+    postSentence(sentence, nrOfImages).then((res) => {
+        dispatch(generateClick({ button: 'generate' }));
+        setImageUrl(dispatch, res);
     });
-    // TODO: remove above
-
-    // TODO: uncomment below
-    // Real response
-    // postSentence().then((res) => {
-    //     dispatch(generateClick({ button: 'generate' }));
-    //     setImageUrl(dispatch, res[0].url);
-    // });
-    // TODO: uncomment above
 };
 
 // Image
@@ -72,4 +59,8 @@ export const changeSelectedImage = (dispatch, direction) => {
     } else if (direction > 0) {
         dispatch(nextUrl());
     }
+};
+
+export const changeNrOfImages = (dispatch, number) => {
+    dispatch(setNrOfImages(number));
 };

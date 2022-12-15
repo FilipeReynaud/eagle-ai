@@ -29,3 +29,5 @@ export const OPEN_DESCRIPTION_PLACEHOLDER =
 
 export const PREVIEW_PANEL_EMPTY_STATE =
     'Describe the suspect so that our engine can generate a potential sketch for you!';
+
+export const SENTENCE_PREFIX = 'hyperrealistic portrait photo, ';

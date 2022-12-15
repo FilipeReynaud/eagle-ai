@@ -4,6 +4,7 @@ const initialState = {
     url: [],
     selectedUrl: null,
     imageSentence: null,
+    nrOfImages: 1,
 };
 
 export const imageSlice = createSlice({
@@ -13,6 +14,7 @@ export const imageSlice = createSlice({
         change: (state, action) => {
             // TODO: deal with error
             if (!action.payload.error) {
+                console.log(action.payload);
                 state.url = action.payload.url;
                 state.selectedUrl = 0;
             }
@@ -20,10 +22,10 @@ export const imageSlice = createSlice({
         nextUrl: (state) => {
             if (state.url && state.url.length !== 0) {
                 const newIndex = state.selectedUrl + 1;
-                if (newIndex === state.url.length - 1) {
-                    state.selectedUrl = newIndex;
-                } else {
+                if (newIndex === state.url.length) {
                     state.selectedUrl = 0;
+                } else {
+                    state.selectedUrl = newIndex;
                 }
             }
         },
@@ -41,10 +43,15 @@ export const imageSlice = createSlice({
             state.imageSentence = action.payload;
             state.selectedUrl = 0;
         },
+        setNrOfImages: (state, action) => {
+            if (action.payload > 0) {
+                state.nrOfImages = action.payload;
+            }
+        },
     },
 });
 
-export const { change, previousUrl, nextUrl, setImgSentence } =
+export const { change, previousUrl, nextUrl, setImgSentence, setNrOfImages } =
     imageSlice.actions;
 
 export default imageSlice.reducer;

@@ -1,13 +1,15 @@
 const API_URL = 'http://localhost:8000';
 
-export const postSentence = async (sentence) => {
+export const postSentence = async (sentence, nrOfImages) => {
     return await fetch(`${API_URL}/generate_image`, {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',
         body: JSON.stringify({
-            description: 'Mock description',
+            description: sentence,
+            mock: false,
+            nrOfImages: nrOfImages,
         }),
     })
         .then((response) => response.json())

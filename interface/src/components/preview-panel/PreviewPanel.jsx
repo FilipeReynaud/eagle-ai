@@ -56,9 +56,7 @@ export default function PreviewPanel() {
             <div className={styles.previewContainer}>
                 <div className={styles.innerContainer}>
                     <img
-                        src={`${process.env.PUBLIC_URL}/assets/mock_result_${
-                            selectedUrl + 1
-                        }.jpeg`}
+                        src={url[selectedUrl].url}
                         alt="generated result"
                         className={styles.generatedImage}
                     />
