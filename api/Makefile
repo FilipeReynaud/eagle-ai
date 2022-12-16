@@ -50,7 +50,6 @@ virtualenv:  ## Creates a virtual environment
 
 .PHONY: local-init
 local-init: virtualenv  ## Init the local environment
-	@$(DOCKER-COMPOSE) up -d
 	@$(PIP) install -r requirements.txt
 
 .PHONY: local-run
