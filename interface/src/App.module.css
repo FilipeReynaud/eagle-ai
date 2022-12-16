@@ -11,14 +11,10 @@
 }
 
 .MuiGridItemMiddle {
-    /* height: 85% !important;
-    max-height: 85% !important; */
-    /* height: fit-content; */
     max-height: 85% !important;
 }
 
 .MuiGridItemBottom {
-    /* max-height: 5% !important; */
     height: fit-content;
 }
 
