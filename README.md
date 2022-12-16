@@ -1,8 +1,9 @@
 # 🎨 Eagle AI 🎨
 
-__Generate hyper-ralistic forensic sketches.__
+__Generate hyper-realistic forensic sketches.__
 
 SaaS that allows forensic sketch artists to improve the quality and speed of their work, creating a baseline hyper-realistic of the criminal, based on the witness description.
+
 ## Context
 
 This project was developed in the context of the [OpenAI Whisper, GPT3, Codex & DALL-E 2 Hackathon](https://lablab.ai/event/openai-whisper-gpt3-codex-dalle2-hackathon).
