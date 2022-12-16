@@ -21,19 +21,20 @@ class OpenAiService:
         return response["data"]
 
     @staticmethod
-    def generate_image(description: str, mock: bool = True) -> list:
+    def generate_image(description: str, mock: bool = True, nrOfImages: int = 1) -> list:
         # We have limited credits, this'll limit the credit usage on testing purposes
         if mock:
-            return OpenAiService.mock_response
+            return OpenAiService.mock_response * nrOfImages
 
         # TODO let's generate more images, change this for the demo
         body = {
             "prompt": description,
-            "n": 1,
-            "size": "1024x1024",
+            "n": nrOfImages,
+            "size": "512x512",
         }
 
-        response = RequestsService.post(OpenAiService.url, custom_headers=OpenAiService.headers, custom_body=body)
+        response = RequestsService.post(
+            OpenAiService.url, custom_headers=OpenAiService.headers, custom_body=body)
 
         # returns a dictionary with a key 'url'
         return OpenAiService.extract_urls_from_response(response)

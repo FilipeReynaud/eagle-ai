@@ -1,10 +1,14 @@
 import React from 'react';
 
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+
 // Components
 import TextField from '../textfield';
 
 // Shared
 import { FEATURES, FEATURE_PLACEHOLDERS } from '../../shared/constants';
+import { onFeatureChange } from '../../shared/state/actions';
 
 // Styles
 import styles from './Template.module.css';
@@ -19,6 +23,9 @@ function FeatureLabel(props) {
 }
 
 export default function Template() {
+    const form = useSelector((state) => state.form);
+    const dispatch = useDispatch();
+
     return (
         <div className={styles.container}>
             {FEATURES.map((feature, idx) => (
@@ -38,6 +45,14 @@ export default function Template() {
                         variant="outlined"
                         size="small"
                         placeholder={FEATURE_PLACEHOLDERS[feature]}
+                        value={form[feature]}
+                        onChange={(event) =>
+                            onFeatureChange(
+                                dispatch,
+                                feature,
+                                event.target.value
+                            )
+                        }
                     />
                 </div>
             ))}
