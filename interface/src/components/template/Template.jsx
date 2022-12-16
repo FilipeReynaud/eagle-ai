@@ -3,6 +3,9 @@ import React from 'react';
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 
+// MUI
+import Grid from '@mui/material/Grid';
+
 // Components
 import TextField from '../textfield';
 
@@ -27,35 +30,37 @@ export default function Template() {
     const dispatch = useDispatch();
 
     return (
-        <div className={styles.container}>
+        <Grid container spacing={2}>
             {FEATURES.map((feature, idx) => (
-                <div
-                    className={styles.form}
-                    id={`div-${feature}'-${idx}`}
-                    key={`div-${feature}'-${idx}`}
-                >
-                    <FeatureLabel
-                        label={feature}
-                        id={`feature-${feature}'-label-${idx}`}
-                        key={`feature-${feature}'-label-${idx}`}
-                    />
-                    <TextField
-                        id={`feature-${feature}'-textfield-${idx}`}
-                        key={`feature-${feature}'-textfield-${idx}`}
-                        variant="outlined"
-                        size="small"
-                        placeholder={FEATURE_PLACEHOLDERS[feature]}
-                        value={form[feature]}
-                        onChange={(event) =>
-                            onFeatureChange(
-                                dispatch,
-                                feature,
-                                event.target.value
-                            )
-                        }
-                    />
-                </div>
+                <Grid item xs={6}>
+                    <div
+                        className={styles.form}
+                        id={`div-${feature}'-${idx}`}
+                        key={`div-${feature}'-${idx}`}
+                    >
+                        <FeatureLabel
+                            label={feature}
+                            id={`feature-${feature}'-label-${idx}`}
+                            key={`feature-${feature}'-label-${idx}`}
+                        />
+                        <TextField
+                            id={`feature-${feature}'-textfield-${idx}`}
+                            key={`feature-${feature}'-textfield-${idx}`}
+                            variant="outlined"
+                            size="small"
+                            placeholder={FEATURE_PLACEHOLDERS[feature]}
+                            value={form[feature]}
+                            onChange={(event) =>
+                                onFeatureChange(
+                                    dispatch,
+                                    feature,
+                                    event.target.value
+                                )
+                            }
+                        />
+                    </div>
+                </Grid>
             ))}
-        </div>
+        </Grid>
     );
 }

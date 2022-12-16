@@ -7,20 +7,22 @@
 }
 
 .MuiGridItemTop {
-    height: 10% !important;
+    max-height: 10% !important;
 }
 
 .MuiGridItemMiddle {
-    height: 85% !important;
+    /* height: 85% !important;
+    max-height: 85% !important; */
+    /* height: fit-content; */
     max-height: 85% !important;
 }
 
 .MuiGridItemBottom {
-    height: 5% !important;
+    /* max-height: 5% !important; */
+    height: fit-content;
 }
 
 @media only screen and (max-width: 900px) {
-
     .MuiGridItem,
     .MuiGridItemTop,
     .MuiGridItemMiddle,
